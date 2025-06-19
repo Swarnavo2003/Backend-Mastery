@@ -7,5 +7,7 @@ const Schedule = {
   Afternoon: "Practice Old Stuff",
   Night: "Revise Concepts",
 };
+const add = (a, b) => a + b;
 
-module.exports = { ADMIN, PI, Platform, Tags, Schedule };
+// module.exports = { ADMIN, PI, Platform, Tags, Schedule };
+module.exports = [ADMIN, PI, Platform, Tags, Schedule, add];
