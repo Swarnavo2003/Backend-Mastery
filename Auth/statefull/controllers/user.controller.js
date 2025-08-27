@@ -42,5 +42,26 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-  } catch (error) {}
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({
+          message: "Logout Failed",
+          success: false,
+          error: err.message,
+        });
+      }
+
+      res.clearCookie("connect.sid");
+      return res.status(200).json({
+        message: "Logout Successfully",
+        success: true,
+      });
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+      error: error.message,
+    });
+  }
 };
