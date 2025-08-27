@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.config.js";
 dotenv.config({ quiet: true });
 
 import userRoutes from "./routes/user.routes.js";
+import taskRoutes from "./routes/task.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/task", taskRoutes);
 
 connectDB()
   .then(() => {
